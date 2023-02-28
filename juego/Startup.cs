@@ -1,5 +1,9 @@
+using Entity.Context;
+using Entity.IServices;
+using Entity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -45,12 +49,12 @@ namespace juego
             });
 
             //ConnectionString
-            services.AddDbContext<CuentaContext>(options =>
-                options.UseOracle(Configuration.GetConnectionString("CUENTA"), options =>
+            services.AddDbContext<JuegoContext>(options =>
+                options.UseOracle(Configuration.GetConnectionString("JUEGO"), options =>
                 options.UseOracleSQLCompatibility("11"))
             );
             //inject services
-            services.AddTransient<ICuentaServices, CuentaServices>();
+            services.AddTransient<IJuegoServices, JuegoServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

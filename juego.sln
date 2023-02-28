@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juego", "juego\juego.csproj", "{3BEE72AE-CAD1-4100-96E7-8F6CE3234BF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "juego", "juego\juego.csproj", "{3BEE72AE-CAD1-4100-96E7-8F6CE3234BF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{7DD43096-D247-46C7-9BA8-DFB65D44C8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{7DD43096-D247-46C7-9BA8-DFB65D44C8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{F6ED7077-B9BB-4960-B7E2-FF223B4D7152}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{F6ED7077-B9BB-4960-B7E2-FF223B4D7152}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2610BCF1-C74D-43DD-BFB2-19E0A4CBC4E5}"
+	ProjectSection(SolutionItems) = preProject
+		database.txt = database.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
