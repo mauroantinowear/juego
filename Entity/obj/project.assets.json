@@ -520,6 +520,19 @@
             "rid": "win"
           }
         }
+      },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.2"
+        },
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
       }
     }
   },
@@ -1568,10 +1581,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "DTO >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.2",
@@ -1604,7 +1623,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mauro\\source\\repos\\juego\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\mauro\\source\\repos\\juego\\DTO\\DTO.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

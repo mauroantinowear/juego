@@ -11,6 +11,26 @@
 </head>
 <body>
     <div class="container">
+        <nav class="navbar navbar-light bg-light justify-content-center">
+            <a href="@Url.Action("Categorias","Home")" class="btn btn-light">
+                <i class="fa-solid fa-ranking-star"></i>&nbsp;Categoría
+            </a>
+            <a href="@Url.Action("Dificultad","Home")" class="btn btn-light">
+                <i class="fa-solid fa-gamepad"></i>&nbsp;Dificultad
+            </a>
+            <a href="@Url.Action("Penalizacion","Home")" class="btn btn-light">
+                <i class="fa-solid fa-hand-middle-finger"></i>&nbsp;Castigos
+            </a>
+            <a href="@Url.Action("Preguntas","Home")" class="btn btn-light">
+                <i class="fa-solid fa-question"></i>&nbsp;Preguntas
+            </a>
+            <a href="@Url.Action("Jugadores","Home")" class="btn btn-light">
+                <i class="fa-solid fa-users-between-lines"></i>&nbsp;Jugadores
+            </a>
+            <a id="new" class="btn btn-light">
+                <i class="fa-solid fa-plus"></i>&nbsp;Agregar @ViewData["Title"]
+            </a>
+        </nav>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -1,4 +1,5 @@
-﻿using juego.Models;
+﻿using Entity.IServices;
+using juego.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +13,12 @@ namespace juego.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IJuegoServices _services;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IJuegoServices services)
         {
             _logger = logger;
+            _services = services;
         }
 
         public IActionResult Index()
@@ -23,7 +26,28 @@ namespace juego.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Categorias()
+        {
+            ViewData["Title"] = "Categoria";
+            return View();
+        }
+        public IActionResult Dificultad()
+        {
+            return View();
+        }
+        public IActionResult Penalizacion()
+        {
+            return View();
+        }
+        public IActionResult Preguntas()
+        {
+            return View();
+        }
+        public IActionResult Jugadores()
+        {
+            return View();
+        }
+        public IActionResult Game()
         {
             return View();
         }

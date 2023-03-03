@@ -1,0 +1,80 @@
+﻿@using Entity.Entities.Juego;
+@{
+    var categorias = (List<Categorium>)ViewData["categoria"] ?? new List<Categorium>();
+    int i = 0;
+}
+
+<div class="container-fluid">
+    <div class="table-responsive-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in categorias)
+                {
+                    <tr>
+                        <td>@(i += 1)</td>
+                        <td>@item.Categoria</td>
+                        @if (item.Estado == "A")
+                        {
+                            <td><span class="badge badge-success">Activa</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="badge badge-danger">Inactiva</span></td>
+                        }
+                        <td>
+                            <a id="edit" class="btn btn-outline-secondary">
+                                <input type="hidden" id="Id" value="@item.IdCategoria" />
+                                <i class="fa-solid fa-edit"></i>&nbsp;Editar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Modal for AddEntity-->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Nueva Categoría</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="catForm" role="form" asp-action="AddCat" asp-controller="Home" method="post">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" name="Categoria" class="form-control" placeholder="Nombre Categoría" required>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-secondary btn btn-block">
+                                <i class="fa-solid fa-save"></i>&nbsp;Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+<script>
+    $('#new').click(function (e) {
+        e.preventDefault();
+        $('#addModal').modal('show');
+    });
+</script>
+}
