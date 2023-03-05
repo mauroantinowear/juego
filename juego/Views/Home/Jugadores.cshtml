@@ -1,6 +1,6 @@
 ﻿@using Entity.Entities.Juego;
 @{
-    var categorias = (List<Categorium>)ViewData["categoria"] ?? new List<Categorium>();
+    var player = (List<Jugador>)ViewData["jugadores"] ?? new List<Jugador>();
     int i = 0;
 }
 
@@ -10,17 +10,17 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Categoría</th>
+                    <th scope="col">Jugador</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in categorias)
+                @foreach (var item in player)
                 {
                     <tr>
                         <td>@(i += 1)</td>
-                        <td>@item.Categoria</td>
+                        <td>@item.Nombre</td>
                         @if (item.Estado == "A")
                         {
                             <td><span class="badge badge-success">Activa</span></td>
@@ -31,7 +31,7 @@
                         }
                         <td>
                             <a id="edit" class="btn btn-outline-secondary btn btn-sm">
-                                <input type="hidden" id="id" value="@item.IdCategoria" />
+                                <input type="hidden" id="id" value="@item.IdJugador" />
                                 <input type="hidden" id="stat" value="@item.Estado" />
                                 <i class="fa-solid fa-edit"></i>&nbsp;Editar
                             </a>
@@ -48,18 +48,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Nueva Categoría</h5>
+                <h5 class="modal-title" id="addModalLabel">Nuevo Jugador</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="AjaxForm" role="form" asp-action="AddCat" asp-controller="Home" method="post">
+                <form class="AjaxForm" role="form" asp-action="AddPlayer" asp-controller="Home" method="post">
                     <div class="form-row">
                         <div class="col-12">
                             <div class="form-group">
-                                <input type="hidden" name="IdCategoria" value="0" />
-                                <input type="text" name="Categoria" class="form-control" placeholder="Nombre Categoría" required>
+                                <input type="hidden" name="IdJugador" value="0" />
+                                <input type="text" name="Nombre" class="form-control" placeholder="Nombre Jugador" required>
                             </div>
                         </div>
                         <div class="col-12">
@@ -71,9 +71,11 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-secondary btn btn-sm">
-                                <i class="fa-solid fa-save"></i>&nbsp;Guardar
-                            </button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-secondary btn btn-sm">
+                                    <i class="fa-solid fa-save"></i>&nbsp;Guardar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -90,17 +92,17 @@
             var id = row.find("#id").val();
             var name = row.find('td:eq(1)').text();
             var status = row.find('#stat').val();
-            document.getElementById("addModalLabel").textContent = "Editar Categoría";
-            document.getElementsByName("IdCategoria")[0].value = id;
-            document.getElementsByName("Categoria")[0].value = name;
+            document.getElementById("addModalLabel").textContent = "Editar Jugador";
+            document.getElementsByName("IdJugador")[0].value = id;
+            document.getElementsByName("Nombre")[0].value = name;
             document.getElementsByName("Estado")[0].value = status;
             $('#addModal').modal('show');
         });
         //on close modal event: [clean all data]
         $('#addModal').on('hidden.bs.modal', function (e) {
-            document.getElementById("addModalLabel").textContent = "Nueva Categoría";
-            document.getElementsByName("IdCategoria")[0].value = 0;
-            document.getElementsByName("Categoria")[0].value = "";
+            document.getElementById("addModalLabel").textContent = "Nuevo Jugador";
+            document.getElementsByName("IdJugador")[0].value = 0;
+            document.getElementsByName("Nombre")[0].value = "";
             document.getElementsByName("Estado")[0].value = "A";
         });
     </script>

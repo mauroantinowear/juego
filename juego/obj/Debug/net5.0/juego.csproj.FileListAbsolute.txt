@@ -420,3 +420,7 @@ C:\Users\mauro\source\repos\juego\juego\bin\Debug\net5.0\DTO.pdb
 C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\juego.Views.pdb
 C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\juego.csproj.CopyComplete
 C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\juego.genruntimeconfig.cache
+C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\Razor\Views\Home\Dificultad.cshtml.g.cs
+C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\Razor\Views\Home\Castigos.cshtml.g.cs
+C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\Razor\Views\Home\Jugadores.cshtml.g.cs
+C:\Users\mauro\source\repos\juego\juego\obj\Debug\net5.0\Razor\Views\Home\Preguntas.cshtml.g.cs

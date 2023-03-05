@@ -153,9 +153,19 @@ namespace Entity.Services
             return _juegoContext.Penalizacions.Find(id);
         }
 
-        public List<Penalizacion> GetPenalizaciones()
+        public List<ListaCastigos> GetPenalizaciones()
         {
-            return _juegoContext.Penalizacions.ToList();
+            return (from p in _juegoContext.Penalizacions
+                    join d in _juegoContext.Dificultads
+                    on p.IdDificultad equals d.IdDificultad
+                    select new ListaCastigos
+                    {
+                        IdDificultad=p.IdDificultad,
+                        IdPenalizacion=p.IdPenalizacion,
+                        Dificultad1=d.Dificultad1,
+                        Penalizacion1=p.Penalizacion1,
+                        Estado=p.Estado
+                    }).ToList();
         }
 
         public Preguntum GetPregunta(int id)

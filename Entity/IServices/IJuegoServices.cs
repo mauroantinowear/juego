@@ -25,7 +25,7 @@ namespace Entity.IServices
         Jugador GetJugador(int id);
         bool AddJugador(Jugador jugador);
         bool EditJugador(Jugador jugador);
-        List<Penalizacion> GetPenalizaciones();
+        List<ListaCastigos> GetPenalizaciones();
         Penalizacion GetPenalizacion(int id);
         bool AddPena(Penalizacion penalizacion);
         bool EditPena(Penalizacion penalizacion);
